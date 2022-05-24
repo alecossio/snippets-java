@@ -1,4 +1,3 @@
-package ecosystem;
 
 class Empty extends Spot {
     public void interact(Animal neighbor){

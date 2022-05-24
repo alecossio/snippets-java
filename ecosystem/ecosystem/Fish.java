@@ -1,4 +1,3 @@
-package ecosystem;
 
 public class Fish extends Animal {
     public Fish(Integer position, River river){
@@ -15,6 +14,6 @@ public class Fish extends Animal {
 
     @Override
     public String toString() {
-        return this.getGenderColor() + "f" + Display.ANSI_RESET;
+        return /*this.getGenderColor() +*/ "f" + Display.ANSI_RESET;
     }
 }

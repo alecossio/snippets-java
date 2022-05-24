@@ -1,4 +1,3 @@
-package ecosystem;
 
 import java.util.Random;
 

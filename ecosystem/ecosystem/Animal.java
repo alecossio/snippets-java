@@ -1,5 +1,3 @@
-package ecosystem;
-
 abstract class Animal extends Spot {
     private Integer position;
     protected River river;
@@ -20,8 +18,10 @@ abstract class Animal extends Spot {
         Integer currentPosition = this.getPosition();
         if(rd.nextBoolean() && currentPosition > 0)
             futurePosition = this.getPosition() - 1;
-        else
+        else if(currentPosition < (Ecosystem.RIVER_SIZE-1))
             futurePosition = this.getPosition() + 1;
+        else
+            futurePosition = currentPosition;
         if(river.checkCollision(futurePosition)){
             Animal target = this.river.getAnimalAt(futurePosition);
             this.interact(target);
