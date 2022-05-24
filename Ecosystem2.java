@@ -32,10 +32,13 @@ abstract class Spot {
 }
 
 abstract class Animal extends Spot {
+    protected River river;
+    
     private Integer position;
 
-    public Animal(Integer position){
+    public Animal(Integer position, River river){
         this.position = position;
+        this.river = river;
     }
     public Integer getPosition() {
         return position;
@@ -58,22 +61,18 @@ abstract class Animal extends Spot {
             this.position = futurePosition;
         }
     }
-
-    public void die(River river) {
-        river.killAnimal(this.getPosition());
-    }
 }
 
 class Bear extends Animal {
-    public Bear(Integer position){
-        super(position);
+    public Bear(Integer position, River river){
+        super(position, river);
     }
     
     public void interact(Animal neighbor) {
         if(neighbor instanceof Fish){
-            neighbor.die(river);
+            this.river.killAnimal(neighbor.getPosition());
         }else if(neighbor.gender != this.gender){//refactor this later: this method should be hoisted into the upper class
-            river.addAnimal(new Bear(river.getRandomEmptyPlace()));
+            river.addAnimal(new Bear(river.getRandomEmptyPlace(), this.river));
         }else{
             //rebound
         }
@@ -86,13 +85,13 @@ class Bear extends Animal {
 }
 
 class Fish extends Animal {
-    public Fish(Integer position){
-        super(position);
+    public Fish(Integer position, River river){
+        super(position, river);
     }
 
     public void interact(Animal neighbor) {
         if(neighbor instanceof Fish && neighbor.gender != this.gender){
-            //procreate
+            river.addAnimal(new Fish(river.getRandomEmptyPlace(), this.river));
         }else{
             //rebound
         }
@@ -128,11 +127,11 @@ class River {
         for(int i=0; i<size; i++){
             Integer diceRoll = rd.nextInt(101);
             if(diceRoll < BEAR_PROB){
-                spot = new Bear(i);
+                spot = new Bear(i, this);
                 animals.add((Animal)spot);
             }
             else if(diceRoll < FISH_PROB){
-                spot = new Fish(i);
+                spot = new Fish(i, this);
                 animals.add((Animal)spot);
             }
             else
@@ -191,90 +190,27 @@ class River {
             currentAnimal.move(this);
         }
     }
-
-    
 }
 
-class Display {
-    //IS THERE a better way to organize this?
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_PINK = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_CLEAR = "\033[H\033[2J";
-    public static final String ANSI_HOME = "\033[H";
-    public static final String CUR_UP = "\033[A";
-    public static final String CUR_DOWN = "\033[B";
-    public static final String CUR_LEFT = "\033[D";
-    public static final String CUR_RIGHT = "\033[C";
-    public static final Integer SIZE_X = 50;
-    public static final Integer SIZE_Y = 50;
-
-    enum Dir {
-        UP, DOWN, LEFT, RIGHT
-    }
-
-    River river;
-
-    public void clear() {
-        System.out.println(Display.ANSI_CLEAR);
-    }
-
-    public void goHome() {
-        System.out.print(ANSI_HOME);
-    }
-
-    public void go(Dir dir){
-        switch(dir){
-            case UP:
-                System.out.print(CUR_UP);
-                break;
-            case DOWN:
-                System.out.print(CUR_DOWN);
-                break;
-            case LEFT:
-                System.out.print(CUR_LEFT);
-                break;
-            case RIGHT:
-                System.out.print(CUR_RIGHT);
-                break;
-        }
-    }
-
-    public void moveCursorNLines(Dir dir, Integer n){
-        //TO DO
-    }
-
-    public void drawFrame() {
-        //TO DO
-        
-    }
-}
-
-public class Ecosystem {
+public class Ecosystem2 {
 
     River river = new River(100);
-    Display display = new Display();
-    
+
     public static void main(String[] args) {
-        Ecosystem system = new Ecosystem();    
+        Ecosystem2 system = new Ecosystem2();    
         system.run();
     }
 
     public void run() {
         
-        display.clear();
-        display.drawFrame();
-        //river.show();
-        //every 1 second, river.update();
         while(true){
+            river.update();
+            river.show();
             try{
                 TimeUnit.SECONDS.sleep(1);
             }catch(InterruptedException e) {
                 e.printStackTrace();
             }
-            display.clear();
-            river.show();
-            river.update();
         }
     }
 }
