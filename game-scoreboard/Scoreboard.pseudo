@@ -1,0 +1,37 @@
+class Scoreboard
+    save only top scores
+
+inputs:
+    int capacity
+    GameEntry e
+        => newScore numerical value
+
+implementation:
+    array (fixed size)
+    numEntries: how many cells of the array are occupied?
+        this "sort of" implements a resizing of the array
+
+method add:
+
+    add new score if newScore qualifies as topscore:
+
+        is array not full?
+            ( because if array is not full, any score is a topscore)
+        OR 
+        is newScore larger than the smallest saved score? 
+            (is newScore part of "top" scores? because if array is already full, then there's competition)
+        if neither of these conditions apply, do not save this score
+
+    if array is not full, increase number of numEntries
+
+    where do I save this new score? => must be in order
+        start from the last currently saved score ( = currentScore )
+            if newScore is larger than currentScore:
+                shift currentScore to the left
+                go to next element
+            if newScore is not larger than currentScore:
+                insert newScore there
+
+    
+
+    
