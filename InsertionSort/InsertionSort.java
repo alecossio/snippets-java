@@ -8,15 +8,18 @@ public class InsertionSort {
     }
     
     public void sort(int[] A){
+        int t;
         for(int i=0; i<A.length; i++){
-            for(int j = 1; j < A.length; j++){
-                if(A[j] < A[i]){
+            t = A[i];
+            int j;
+            for(j = i+1; j < A.length; j++){
+                if(A[j] < t){
                     A[j-1] = A[j];
                 }else{
-                    A[j] = A[i];
                     break;
                 }
             }
+            A[j-1] = t;
         }
         
     }
