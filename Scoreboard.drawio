@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-25T11:34:16.294Z" agent="5.0 (Windows)" etag="_AFJjCPMqnOvWXag5_sY" version="18.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-25T11:47:18.954Z" agent="5.0 (Windows)" etag="nVuFcXDSBdK7TqQhzfyf" version="18.1.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1421" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -207,6 +207,30 @@
             <mxPoint x="390" y="470" as="sourcePoint" />
             <mxPoint x="440" y="420" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-41" value="&lt;font color=&quot;#FF2424&quot;&gt;shift element &quot;j-1&quot; of array &quot;board&quot; to the right 1 place&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="210" y="885" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-42" value="&lt;font color=&quot;#FF2424&quot;&gt;select next element to the left&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="210" y="945" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-43" value="&lt;font color=&quot;#FF2424&quot;&gt;have I reached end of array?&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="150" y="585" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-44" value="&lt;font color=&quot;#FF2424&quot;&gt;is current score element ( &quot; j - 1 &quot; element) smaller than the new score?&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="210" y="790" width="50" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-46" value="&lt;font color=&quot;#3333FF&quot;&gt;insert new score in this place&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#3333FF;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="400" y="600" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-47" value="&lt;font color=&quot;#CCCC00&quot;&gt;if board is not full yet, make room for one more score&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#CCCC00;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="160" y="380" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-48" value="&lt;font color=&quot;#FF2424&quot;&gt;newScore is larger than last(smallest) score in board?&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#FF2424;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="324" y="120" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P7YQHDTj-ubm-z4WEopK-49" value="board is not full?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#FF2424;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="130" y="210" width="50" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
