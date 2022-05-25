@@ -71,6 +71,17 @@ public class Scoreboard {
         }
     }
 
+    public GameEntry remove(int index) throws IndexOutOfBoundsException{
+        if(index >= numEntries || index < 0) throw new IndexOutOfBoundsException("Wrong index");
+        GameEntry temp = board[index];
+        for(int j = index+1; j < numEntries; j++){
+            board[j-1] = board[j];
+        }
+        board[numEntries - 1] = null;
+        numEntries--;
+        return temp;
+    }
+
     @Override
     public String toString() {
         return "Scoreboard [board=" + Arrays.toString(board) + "]";
