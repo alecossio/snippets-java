@@ -24,31 +24,33 @@ public class SinglyLinkedList <E>{
         else   
             return false;
     }
-    public Node<E> first() {
-        return head;
+    public E first() {
+        return head.element;
     }
-    public Node<E> last() {
-        return tail;
+    public E last() {
+        return tail.element;
     }
-    public void addFirst(Node<E> newNode){
+    public void addFirst(E element){
+        Node<E> newNode = new Node<>(element);
         newNode.next = this.head;
         this.head = newNode;
         this.size++;
     }
-    public void addLast(Node<E> newNode){
+    public void addLast(E element){
+        Node<E> newNode = new Node<>(element);
         newNode.next = null;
         this.tail.next = newNode;
         this.tail = newNode;
         this.size++;
     }
-    public Node<E> removeFirst(){
+    public E removeFirst(){
         if(this.head == null)
             return null;
         else{
             Node<E> t = this.head;
             this.head = this.head.next;
             this.size--;
-            return t;
+            return t.element;
         }
     }
 

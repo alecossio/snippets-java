@@ -7,6 +7,14 @@ public class TestSLL {
     }
 
     public void run() {
-        singlyLinkedList.addFirst(new Node("Hello"));
+        singlyLinkedList.addFirst("Hello");
+        singlyLinkedList.addFirst("how");
+        singlyLinkedList.addFirst("r");
+        singlyLinkedList.addFirst("you");
+        String t = "";
+        while( t != null){
+            System.out.println(t);
+            t = singlyLinkedList.removeFirst();
+        }
     }
 }
