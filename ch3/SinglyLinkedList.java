@@ -1,10 +1,17 @@
 public class SinglyLinkedList <E>{
-    private static class Node<E>{               //investigar: por que la nested class must be static?
+    private class Node<E>{               //investigar: por que la nested class must be static?
         private E element;
         private Node<E> next;                   //repasar: generics
 
         public Node(E element){
             this.element = element;
+        }
+
+        public E get(int n){
+            if(n == 0)
+                return element;
+            else
+                return next.get(n-1);
         }
     }
     private Node<E> head = null;
@@ -19,10 +26,7 @@ public class SinglyLinkedList <E>{
         return this.size;
     }
     public boolean isEmpty(){
-        if(head == null)
-            return true;
-        else   
-            return false;
+        return (size == 0);
     }
     public E first() {
         return head.element;
@@ -39,7 +43,10 @@ public class SinglyLinkedList <E>{
     public void addLast(E element){
         Node<E> newNode = new Node<>(element);
         newNode.next = null;
-        this.tail.next = newNode;
+        if(this.isEmpty())
+            this.head = newNode;
+        else
+            this.tail.next = newNode;
         this.tail = newNode;
         this.size++;
     }
@@ -54,5 +61,18 @@ public class SinglyLinkedList <E>{
         }
     }
 
+    public E getHead() {
+        return head.element;
+    }
+
+    public E getTail() {
+        return tail.element;
+    }
+
+    public E get(int n) throws IllegalArgumentException{
+        if(n < 0 || n > (this.size-1)) throw new IllegalArgumentException();
+        else
+            return this.head.get(n);
+    }
 
 }

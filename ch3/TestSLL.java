@@ -3,18 +3,19 @@ public class TestSLL {
 
     public static void main(String[] args) {
         TestSLL t = new TestSLL();
-        t.run();
+        t.run(args);
     }
 
-    public void run() {
-        singlyLinkedList.addFirst("Hello");
-        singlyLinkedList.addFirst("how");
-        singlyLinkedList.addFirst("r");
-        singlyLinkedList.addFirst("you");
+    public void run(String[] args) {
+        singlyLinkedList.addLast("Hello");
+        singlyLinkedList.addLast("how");
+        singlyLinkedList.addLast("r");
+        singlyLinkedList.addLast("you");
         String t = "";
-        while( t != null){
-            System.out.println(t);
-            t = singlyLinkedList.removeFirst();
-        }
+        
+        t = singlyLinkedList.get(Integer.parseInt(args[0]));
+        System.out.println(t);
+
+    
     }
 }
