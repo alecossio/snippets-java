@@ -19,7 +19,6 @@ public class SinglyLinkedList <E>{
     private int size = 0;
 
     public SinglyLinkedList(){
-        //TODO
     }
 
     public int size(){
@@ -29,15 +28,21 @@ public class SinglyLinkedList <E>{
         return (size == 0);
     }
     public E first() {
+        if(this.isEmpty())
+            return null;
         return head.element;
     }
     public E last() {
+        if(this.isEmpty())
+            return null;    
         return tail.element;
     }
     public void addFirst(E element){
         Node<E> newNode = new Node<>(element);
         newNode.next = this.head;
         this.head = newNode;
+        if(this.isEmpty())
+            this.tail = this.head;
         this.size++;
     }
     public void addLast(E element){
@@ -59,14 +64,6 @@ public class SinglyLinkedList <E>{
             this.size--;
             return t.element;
         }
-    }
-
-    public E getHead() {
-        return head.element;
-    }
-
-    public E getTail() {
-        return tail.element;
     }
 
     public E get(int n) throws IllegalArgumentException{

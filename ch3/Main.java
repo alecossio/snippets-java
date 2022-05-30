@@ -1,8 +1,8 @@
-public class TestSLL {
+public class Main {
     private SinglyLinkedList<String> singlyLinkedList = new SinglyLinkedList<String>();
 
     public static void main(String[] args) {
-        TestSLL t = new TestSLL();
+        Main t = new Main();
         t.run(args);
     }
 
