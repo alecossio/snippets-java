@@ -1,10 +1,7 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class CircularlyLinkedListTest {
-    //private CircularlyLinkedList<String> CLL = new CircularlyLinkedList<>();
-
     @Test
     public void rotateTest(){
         CircularlyLinkedList<String> CLL = new CircularlyLinkedList<>();
