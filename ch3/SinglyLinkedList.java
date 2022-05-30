@@ -1,7 +1,7 @@
 public class SinglyLinkedList <E>{
-    private class Node<E>{               //investigar: por que la nested class must be static?
-        private E element;
-        private Node<E> next;                   //repasar: generics
+    protected class Node<E>{               //investigar: por que la nested class must be static?
+        protected E element;
+        protected Node<E> next;                   //repasar: generics
 
         public Node(E element){
             this.element = element;
@@ -14,9 +14,9 @@ public class SinglyLinkedList <E>{
                 return next.get(n-1);
         }
     }
-    private Node<E> head = null;
-    private Node<E> tail = null;
-    private int size = 0;
+    protected Node<E> head = null;
+    protected Node<E> tail = null;
+    protected int size = 0;
 
     public SinglyLinkedList(){
     }
