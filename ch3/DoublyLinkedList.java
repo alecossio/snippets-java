@@ -31,6 +31,8 @@ public class DoublyLinkedList<E> {
         NodeDoubly<E> newNode = new NodeDoubly<>(element);
         newNode.next = trailer;
         newNode.prev = trailer.prev;
+        System.out.println("trailer prev next = " + trailer.prev.next.element);
+        trailer.prev.next = newNode;
         trailer.prev = newNode;
         size++;
     }
@@ -48,7 +50,7 @@ public class DoublyLinkedList<E> {
         size--;
         return temp;
     }
-    public E get(int i){
+/*     public E get(int i){
         E t;
         if(i < size/2){
             System.out.println("forward getting");
@@ -57,5 +59,21 @@ public class DoublyLinkedList<E> {
         else
             t = trailer.prev.revGet(i);
         return t;
+    } */
+    public E get(int i){
+        E t;
+        t = header.next.get(i);
+        return t;
+    }
+    public boolean equals(Object o){
+        if(o.getClass() != this.getClass())
+            throw new IllegalArgumentException("Cannot compare different classes");
+        DoublyLinkedList other = (DoublyLinkedList)o;
+        if(this.size() != other.size())
+            return false;
+        for(int i = 0; i < this.size; i++)
+            if(this.get(i) != other.get(i))
+                return false;
+        return true;
     }
 }

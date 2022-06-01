@@ -52,4 +52,33 @@ public class CircularlyLinkedList<E> {
         else
             return this.tail.next.get(n);
     }
+    public int calculateSize(){
+        if(tail == null)
+            return 0;
+        int size = 1;
+        Node<E> node = tail.next;;
+        while(node != tail){
+            size++;
+            node = node.next;
+        }
+        return size;
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if(other.getClass() != this.getClass())
+            throw new IllegalArgumentException("Cannot compare object of different class");
+        CircularlyLinkedList otherCLL = (CircularlyLinkedList)other;
+        if(otherCLL.size() != this.size()){
+            System.out.println("size mismatch");
+            return false;
+        }
+        for(int i = 0; i < this.size(); i++){
+            if(this.get(i) != otherCLL.get(i)){
+                System.out.println("element mismatch at:" + i);
+                return false;
+            }
+        }
+        return true;
+    }
 }

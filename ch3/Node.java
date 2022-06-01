@@ -7,6 +7,7 @@ public class Node<E>{
     }
 
     public E get(int n){
+        System.out.println("calling get with n = " + n + "for element = " + this.element);
         if(n == 0)
             return element;
         else

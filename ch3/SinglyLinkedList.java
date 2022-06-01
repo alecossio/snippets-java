@@ -50,11 +50,28 @@ public class SinglyLinkedList <E>{
             return t.element;
         }
     }
-
     public E get(int n) throws IllegalArgumentException{
         if(n < 0 || n > (this.size-1)) throw new IllegalArgumentException();
         else
             return this.head.get(n);
+    }
+    public E second2Last(Node<E> node){
+        if(node.next == tail)
+            return node.element;
+        else
+            return this.second2Last(node.next);
+    }
+    public E second2Last(){
+        return this.second2Last(this.head);
+    }
+    public int calculateSize(){
+        Node<E> node = this.head;
+        int size = 0;
+        while(node != null){
+            size++;
+            node = node.next;
+        }
+        return size;
     }
 
 }

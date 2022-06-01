@@ -47,4 +47,22 @@ public class SinglyLinkedListTest{
         assertTrue(singlyLinkedList.get(2).equals("r"));
         assertTrue(singlyLinkedList.get(3).equals("you"));
     }
+    @Test
+    public void testSecond2Last(){
+        SinglyLinkedList<String> SLL = new SinglyLinkedList<String>();
+        SLL.addLast("A");
+        SLL.addLast("B");
+        SLL.addLast("C");
+        SLL.addLast("D");
+        assertEquals(SLL.second2Last(), "C");
+    }
+    @Test
+    public void testCalculateSize(){
+        SinglyLinkedList<String> SLL = new SinglyLinkedList<String>();
+        SLL.addLast("A");
+        SLL.addLast("B");
+        SLL.addLast("C");
+        SLL.addLast("D");
+        assertEquals(4, SLL.calculateSize());
+    }
 }
