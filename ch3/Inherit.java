@@ -1,7 +1,3 @@
-import java.util.zip.DeflaterOutputStream;
-
-import javax.swing.event.SwingPropertyChangeSupport;
-
 class Dep {
     private int field;
     protected String element;

@@ -66,6 +66,8 @@ public class DoublyLinkedList<E> {
         return t;
     }
     public boolean equals(Object o){
+        if(o == null)
+            return false;
         if(o.getClass() != this.getClass())
             throw new IllegalArgumentException("Cannot compare different classes");
         DoublyLinkedList other = (DoublyLinkedList)o;

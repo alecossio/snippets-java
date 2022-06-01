@@ -66,6 +66,8 @@ public class CircularlyLinkedList<E> {
 
     @Override
     public boolean equals(Object other){
+        if(other == null)
+            return false;
         if(other.getClass() != this.getClass())
             throw new IllegalArgumentException("Cannot compare object of different class");
         CircularlyLinkedList otherCLL = (CircularlyLinkedList)other;
