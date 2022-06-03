@@ -18,6 +18,7 @@ public class CircularDoublyLinkedList<E> {
     public E last(){
         return sentinel.prev.element;
     }
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public void addFirst(E element){
         NodeDoubly node = new NodeDoubly<E>(element);
         node.next = this.sentinel.next;
@@ -25,6 +26,7 @@ public class CircularDoublyLinkedList<E> {
         this.sentinel.next = node;
         size++;
     }
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public void addLast(E element){
         NodeDoubly node = new NodeDoubly<E>(element);
         node.next = this.sentinel;
