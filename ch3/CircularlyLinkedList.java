@@ -65,12 +65,14 @@ public class CircularlyLinkedList<E> {
     }
 
     @Override
+    @SuppressWarnings("rawtypes")
     public boolean equals(Object other){
         if(other == null)
             return false;
         if(other.getClass() != this.getClass())
             throw new IllegalArgumentException("Cannot compare object of different class");
-        CircularlyLinkedList otherCLL = (CircularlyLinkedList)other;
+        
+            CircularlyLinkedList otherCLL = (CircularlyLinkedList)other;
         if(otherCLL.size() != this.size()){
             System.out.println("size mismatch");
             return false;

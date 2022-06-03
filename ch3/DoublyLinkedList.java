@@ -65,6 +65,7 @@ public class DoublyLinkedList<E> {
         t = header.next.get(i);
         return t;
     }
+    @SuppressWarnings("rawtypes")
     public boolean equals(Object o){
         if(o == null)
             return false;
