@@ -10,8 +10,8 @@ public class Pseudorandom {
     
     public static void main(String[] args) {
      
-        int a = 12;
-        int b = 5;
+        int a = 1;
+        int b = 0;
         int n = 100;
         int cur = 92;
 

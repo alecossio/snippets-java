@@ -4,7 +4,7 @@ public class Scoreboard {
     /*
     * numEntries: occupied size of the array (because actual array is not resizable)
     */
-    private int numEntries = 0;
+    protected int numEntries = 0;
     /*
     * actual array
     */
