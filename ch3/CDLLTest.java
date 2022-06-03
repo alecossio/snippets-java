@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class CDLLTest {
@@ -77,5 +78,14 @@ public class CDLLTest {
         cdll.addLast("B");
         cdll.addLast("C");
         assertEquals("B", cdll.getRight(2));
+    }
+    @Test
+    public void testCloneEquals(){
+        CDLL<String>cdllA = new CDLL<>();
+        cdllA.addLast("A");
+        cdllA.addLast("B");
+        cdllA.addLast("C");
+        CDLL<String>cdllB = cdllA.clone();
+        assertTrue(cdllA.equals(cdllB));
     }
 }

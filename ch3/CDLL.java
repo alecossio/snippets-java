@@ -1,4 +1,4 @@
-public class CDLL<E> {
+public class CDLL<E> implements Cloneable{
     int size = 0;
     private NodeDoubly<E> h;
 
@@ -65,5 +65,28 @@ public class CDLL<E> {
     }
     public E getRight(int n){
         return h.revGet(n);
+    }
+    @Override
+    public CDLL<E> clone(){
+        CDLL<E> t = new CDLL<>();
+        for(int i = 0; i < this.size; i++){
+            t.addLast(getLeft(i));
+        }
+        return t;
+    }
+    @Override
+    @SuppressWarnings("unchecked")
+    public boolean equals(Object o){
+        if(o == null)
+            return false;
+        if(o.getClass() != this.getClass())
+            return false;
+        CDLL<E> other = (CDLL<E>)o;
+        if(size != other.size())
+            return false;
+        for(int i = 0; i < size; i++)
+            if(getLeft(i) != other.getLeft(i))
+                return false;
+        return true;
     }
 }
