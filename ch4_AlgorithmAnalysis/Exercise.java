@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Arrays;
 
 public class Exercise {
@@ -51,6 +52,22 @@ public class Exercise {
             return binarySearch(A, low, mid-1, target);
     }
 
+    public static long diskUsage(String path){
+        File currentFile = new File(path);
+        String[] contents = currentFile.list();
+        long currentSize = 0;
+        for(String filePath : contents){
+            File newFile = new File(path, filePath);
+            if(newFile.isDirectory()){
+                currentSize += diskUsage(newFile.getAbsolutePath());
+            }
+            else{
+                currentSize += newFile.length();
+            }
+        }
+        return currentSize;
+    }
+
     public static void main(String[] args) {
         int[] input1 = {1,2,3,4,5,6,7,8,9};
         int[] input2 = {1,2,3,4,5,6,7,8,1};
@@ -67,5 +84,7 @@ public class Exercise {
         insertionSort(input4);
         System.out.println(Arrays.toString(input4));
         System.out.println(binarySearch(input4, 0, input4.length, 6)); 
+        System.out.println("size:");
+        System.out.println(diskUsage("c:\\tmptest\\"));
     }
 }
