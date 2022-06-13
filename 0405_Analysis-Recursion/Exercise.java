@@ -30,7 +30,7 @@ public class Exercise {
         for(int i = 1; i< A.length; i++){
             t = A[i];
             int j;
-            for(j = i; j >0; j--){
+            for(j = i; j > 0; j--){
                 if(A[j - 1] > t)
                     A[j] = A[j-1];
                 else
@@ -50,6 +50,38 @@ public class Exercise {
             return binarySearch(A, mid+1, high, target);
         else
             return binarySearch(A, low, mid-1, target);
+    }
+
+    public static int sumOfFirstN(int[] A, int n){
+        if(n == 0)
+            return 0;
+        else
+            return sumOfFirstN(A, n-1) + A[n-1];
+    }
+
+    public static void reverseSequence(int[] A, int lowIndex, int highIndex){
+        int t;
+        if(lowIndex >= highIndex)
+            return;
+        t = A[lowIndex];
+        A[lowIndex] = A[highIndex];
+        A[highIndex] =  t;
+        reverseSequence(A, lowIndex+1, highIndex-1);
+    }
+
+    public static double power(double x, int n){
+        if(n == 0)
+            return 1;
+        else return x*power(x, n-1);
+    }
+
+    public static double power2(double x, int n){
+        if(n == 0)
+            return 1;
+        double t = power(x, n/2);
+        if(n % 2 == 1)
+            return x*t*t;
+        return t*t;
     }
 
     public static long diskUsage(String path){
@@ -86,5 +118,16 @@ public class Exercise {
         System.out.println(binarySearch(input4, 0, input4.length, 6)); 
         System.out.println("size:");
         System.out.println(diskUsage("c:\\tmptest\\"));
+        int[] input5 = {1,2,3,4,5,6,7,8,9};
+        System.out.println("sum: " + sumOfFirstN(input5, 3));
+        
+        System.out.println(Arrays.toString(input5) + " => rev => " );
+        reverseSequence(input5, 0, input5.length-1);
+        System.out.println(Arrays.toString(input5));
+
+        System.out.println(power(9.0, 3));
+        System.out.println(power2(9.0, 3));
+        System.out.println(power(9.0, 27));
+
     }
 }
